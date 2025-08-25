@@ -1,0 +1,123 @@
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+.info {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.info span {
+  font-weight: 600;
+  color: #111;
+}
+
+.buttons{
+  display: flex;
+  justify-content: space-between;
+}
+
+.status {
+  display: inline-block;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+}
+
+.status.pending {
+  background: #fffbe6;
+  color: #b45309;
+  border: 1px dashed #fbbf24;
+}
+
+.status.done {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #10b981;
+}
+
+.deleteBtn{
+  padding: 5px;
+  background-color: red;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  width: 100px;
+  height: 40px;
+  margin-top: 17px;
+}
+
+.deleteBtn:hover{
+  background-color: rgb(231, 25, 101);
+
+}
+
+
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.submitBtn {
+  align-self: flex-start;
+  padding: 0.6rem 1.2rem;
+  background: #10b981;
+  color: white;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.submitBtn:hover {
+  background: #059669;
+}

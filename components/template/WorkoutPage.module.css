@@ -1,0 +1,147 @@
+/* کانتینر اصلی صفحه (شامل همه) */
+.pageContainer {
+  width: calc(100% - 40px);
+  margin: 3rem auto 2rem auto;
+  max-width: 480px;
+  font-family: "Inter", sans-serif;
+}
+
+/* تیتر اصلی */
+.title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  background: linear-gradient(109.6deg, rgba(119, 44, 232, 0.68) 11.5%, rgb(119, 44, 232) 91.2%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* بخش عکس قبل و بعد خارج از کارت */
+.beforeAfter {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.beforeWrapper,
+.afterWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45%; /* نزدیک به نصف برای موبایل و دسکتاپ */
+  min-width: 120px;
+}
+
+.beforeWrapper p,
+.afterWrapper p {
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.beforeWrapper .image,
+.afterWrapper .image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* متن توضیح پایین عکس‌ها */
+.description {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* کارت فرم با شادو و بگراند */
+.container {
+  width: 100%;
+  padding: 2.5rem;
+  background: linear-gradient(145deg, #ffffff, #f8f9fb);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(135, 6, 129, 0.25);
+  animation: fadeIn 0.6s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* انیمیشن */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* فرم */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.input {
+  padding: 0.9rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #fff;
+  transition: all 0.25s ease;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+  font-size: 1rem;
+}
+
+.input:focus {
+  border: 1px solid var(--color-primary);
+  outline: none;
+  background: linear-gradient(#fff, #fff) padding-box,
+              linear-gradient(90deg, #0070f3, #00c6ff) border-box;
+  box-shadow: 0 0 8px rgba(0, 118, 255, 0.25);
+}
+
+.button {
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(109.6deg, rgba(119, 44, 232, 0.68) 11.5%, rgb(119, 44, 232) 91.2%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 118, 255, 0.35);
+}
+
+.message {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.8rem;
+  border-radius: 8px;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+/* پاسخگویی موبایل و دسکتاپ */
+@media (min-width: 768px){
+  .beforeWrapper,
+  .afterWrapper {
+    width: 45%;
+  }
+
+  .container {
+    margin-top: 20px;
+  }
+}

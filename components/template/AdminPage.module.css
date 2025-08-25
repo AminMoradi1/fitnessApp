@@ -1,0 +1,23 @@
+.container{
+    margin-top: 70px !important;
+    width: calc(100% - 60px);
+    margin: auto;
+}
+
+.container h1{
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.emptyBox{
+    width: calc(100% - 60px);
+    font-weight: 400;
+    height: 150px;
+    color: rgb(205, 14, 14);
+    background-color: var(--color-secondary);
+    padding: 10px;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}

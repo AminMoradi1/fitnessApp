@@ -1,0 +1,161 @@
+/* هدر ثابت بالای صفحه */
+.header {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: calc(100% - 40px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1002;
+}
+
+/* دکمه ورود */
+.header .login {
+  background: none;
+  color: var(--color-secondary);
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease-in-out;
+  background: var(--color-primary);
+}
+
+.header .login .dashboard{
+  font-size: 1.4rem;
+}
+
+
+.header .login:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.scrolled{
+    color: #000;
+}
+.scrolled .hamburger svg{
+    color: var(--color-primary);
+}
+
+.scrolled .login{
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+}
+
+.desktopMenu{
+    display: none;
+}
+
+/* دکمه همبرگر */
+.hamburger {
+  border: none;
+  background: none;
+  padding: 5px;
+  border-radius: 7px;
+  cursor: pointer;
+  z-index: 1003;
+}
+
+.hamburger svg {
+  color: var(--color-primary);
+  font-size: 1.8rem;
+
+}
+
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100vh;
+  background: #141313;
+  color: #ffffff;
+  padding-top: 60px;
+  transition: right 0.3s ease-in-out;
+  z-index: 1001;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu ul li {
+  padding: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  width: calc(100% - 16%);
+  margin-right: 5px;
+  transition: 0.2s all ease-in;
+  border-radius: 5px;
+}
+
+.menu ul li:hover {
+  background-color: var(--color-primary);
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.show {
+  right: 0;
+}
+
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+
+  .menu { /* منوی کشویی موبایل */
+    display: none;
+  }
+
+  .header .login{
+    margin-left: 20px;
+  }
+  
+  .header{
+    padding: 10px;
+    background-color: var(--color-secondary);
+    top: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  .desktopMenu {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: transparent;
+  }
+
+  .desktopMenu ul {
+    display: flex;;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .desktopMenu ul li a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 8px;
+    padding: 5px;
+    transition: color 0.3s;
+  }
+
+  .desktopMenu ul li a:hover {
+    color: #f1c0ff;
+  }
+
+}

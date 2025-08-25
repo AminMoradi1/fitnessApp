@@ -1,0 +1,30 @@
+.detailContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  margin-top: 80px;
+}
+
+.detailTitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.detailImageWrapper {
+  margin-bottom: 2rem;
+  width: calc(100% - 10px);
+}
+
+.detailImage {
+  border-radius: 8px;
+  object-position: 70%;
+  object-fit: cover;
+  width: calc(100% - 40px);
+}
+
+.detailContent {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: justify;
+}

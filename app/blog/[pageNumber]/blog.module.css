@@ -1,0 +1,133 @@
+.container {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid #eee;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 220px;
+  position: relative;
+}
+
+.image {
+  object-fit: cover;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.content {
+  padding: 20px;
+  margin-top: 74px;
+}
+
+.content h2 {
+  margin-bottom: 12px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.4;
+}
+
+.content p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  /* background: linear-gradient(135deg, #0070f3, #0051a3); */
+  background: linear-gradient(91.1deg, rgb(57, 31, 105) -2.3%, rgb(115, 43, 155) 44.4%, rgb(231, 75, 184) 103.4%);
+  color: #fff;
+  font-weight: 500;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* صفحه‌بندی */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.pageLink {
+  padding: 8px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  transition: 0.25s;
+}
+
+.pageLink:hover {
+  background: #f7f7f7;
+}
+
+.active {
+  background: #0070f3;
+  color: #fff;
+  border-color: #0070f3;
+}
+
+/* دسکتاپ */
+@media (min-width: 768px) {
+  .card {
+    flex-direction: row;
+    height: 260px;
+  }
+
+  .imageWrapper {
+    flex: 1;
+    height: auto;
+  }
+
+  .content {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  margin-top: 0px;
+
+  }
+}

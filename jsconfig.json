@@ -1,7 +1,17 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/public/*": ["public/*"],
+      "@/app/*": ["app/*"],
+      "@/utils/*": ["utils/*"],
+      "@/components/*": ["components/*"],
+      "@/models/*": ["models/*"],
+      "@/api/*": ["app/api/*"],
+      "@/providers/*": ["providers/*"],
+      "@/layout/*": ["components/layout/*"],
+      "@/module/*": ["components/module/*"],
+      "@/template/*": ["components/template/*"],
     }
   }
 }

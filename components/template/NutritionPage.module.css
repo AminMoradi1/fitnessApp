@@ -1,0 +1,92 @@
+.container {
+  max-width: 400px;
+  width: calc(100% - 60px);
+  margin: 40px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-top: 100px !important;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: center;
+  color: #111827; 
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.label {
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: block;
+  color: #374151; 
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db; 
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-primary); /* blue-600 */
+  box-shadow: 0 0 0 2px rgba(199, 37, 235, 0.2);
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.button {
+  background: var(--color-primary);
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+
+.button:hover {
+  background: var(--color-secondary); 
+  color: var(--color-primary);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.message {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #374151;
+  background-color: #3a184e;
+  padding: 8px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 400;
+}
