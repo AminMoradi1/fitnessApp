@@ -4,8 +4,9 @@ import Layout from "@/layout/Layout";
 import NextAuthProvider from "@/providers/NextAuhProvider";
 
 export const metadata = {
-  title: "املاک | پروژه امین مرادی",
-  description: "سایت خرید و فروش املاک",
+  title: "بدنسازی با امین",
+  description:
+    "بدنسازی و پرورش اندام || دریافت برنامه حجم || دریافت برنامه کات",
   icons: { icon: "./favicon.ico" },
 };
 
