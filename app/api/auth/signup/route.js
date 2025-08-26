@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import User from "@/models/User";
 import connectDB from "@/utils/connectDB";
 import { hashPassword } from "@/utils/auth";
+import validator from "validator";
 
 export async function POST(req) {
   try {
@@ -16,6 +17,13 @@ export async function POST(req) {
       );
     }
 
+    if (!validator.isEmail(email)) {
+      return NextResponse.json(
+        { error: "❌ایمیل معتبر نیست" },
+        { status: 422 }
+      );
+    }
+
     const exsistUser = await User.findOne({ email });
     if (exsistUser) {
       return NextResponse.json(
@@ -26,7 +34,11 @@ export async function POST(req) {
 
     const hashedPassword = await hashPassword(password);
 
-    const newUser = await User.create({name , email, password: hashedPassword });
+    const newUser = await User.create({
+      name,
+      email,
+      password: hashedPassword,
+    });
     console.log(newUser);
     return NextResponse.json(
       { message: "حساب کاربری با موفقیت ایجاد شد✅" },
