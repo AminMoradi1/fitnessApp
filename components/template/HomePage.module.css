@@ -20,6 +20,7 @@
 .cardsContainer {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 2rem;
   max-width: 1200px;
   width: 100%;
@@ -63,6 +64,7 @@
   display: inline-block;
   padding: 0.8rem 1.2rem;
   background: linear-gradient(109.6deg, rgba(119, 44, 232, 0.68) 11.5%, rgb(119, 44, 232) 91.2%);
+
   color: #fff;
   border-radius: 10px;
   text-decoration: none;
