@@ -1,24 +1,22 @@
 import connectDB from "@/utils/connectDB";
-import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
 import Request from "@/models/Request";
-import User from "@/models/User";
 
 export async function POST(req) {
   await connectDB();
   const session = await getServerSession(authOptions);
-  console.log(session);
 
   if (!session) {
     return NextResponse.json(
-      { error: "لطفا وارد حساب کاربری خود شوید" },
+      { error: "❌لطفا وارد حساب کاربری خود شوید" },
       { status: 401 }
     );
   }
 
   const body = await req.json();
-  const { height, weight, photo, experience , type } = body;
+  const { height, weight, photo, experience, type } = body;
 
   if (!height || !weight) {
     return NextResponse.json(
@@ -27,46 +25,52 @@ export async function POST(req) {
     );
   }
 
+  const heightNum = Number(height);
+  const weightNum = Number(weight);
+
+  if (isNaN(heightNum) || isNaN(weightNum)) {
+    return NextResponse.json(
+      { error: "❌قد و وزن باید عدد باشند" },
+      { status: 422 }
+    );
+  }
+
+  if (heightNum < 50 || heightNum > 300) {
+    return NextResponse.json(
+      { error: "❌قد باید بین 50 تا 300 سانتی‌متر باشد" },
+      { status: 422 }
+    );
+  }
+
+  if (weightNum < 20 || weightNum > 200) {
+    return NextResponse.json(
+      { error: "❌وزن باید بین 20 تا 200 کیلوگرم باشد" },
+      { status: 422 }
+    );
+  }
+
+  const existingRequest = await Request.findOne({
+    user: session.user.id,
+    type: "training",
+  });
+  if (existingRequest) {
+    return NextResponse.json(
+      { error: "❌شما قبلا درخواست داده‌اید" },
+      { status: 400 }
+    );
+  }
+
   const request = await Request.create({
     user: session.user.id,
-    height: Number(height),
-    weight: Number(weight),
+    height: heightNum,
+    weight: weightNum,
     photo,
     experience,
     type,
   });
 
-  console.log("requestProgram", request);
-
   return NextResponse.json(
-    { message: "درخواست برنامه شما با موفقیت انجام شد" },
+    { message: "درخواست برنامه شما با موفقیت ثبت شد" },
     { status: 200 }
   );
-}
-
-export async function GET(req) {
-  await connectDB();
-  const session = await getServerSession(authOptions);
-
-  if (!session) {
-    return NextResponse.json(
-      { error: "لطفا وارد حساب کاربری خود شوید" },
-      { status: 401 }
-    );
-  }
-
-  const user = await User.findOne({ email: session.user.email });
-  console.log(user);
-
-  if (!user) {
-    return NextResponse.json({ error: "کاربر یافت نشد" }, { status: 404 });
-  }
-
-  if (user.role !== "ADMIN") {
-    return NextResponse.json({ error: "دسترسی محدود" }, { status: 403 });
-  }
-
-  const requests = await Request.find({ status: "pending" }).populate("user");
-
-  return NextResponse.json(requests, { status: 200 });
 }

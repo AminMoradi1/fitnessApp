@@ -9,27 +9,68 @@ export async function POST(req) {
   const session = await getServerSession(authOptions);
 
   if (!session) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json(
+      { error: "لطفا وارد حساب کاربری خود شوید❌" },
+      { status: 401 }
+    );
   }
 
-  const { height, weight, experience, photo, extraQuestion , type } = await req.json();
+  const { height, weight, experience, photo, extraQuestion, type } =
+    await req.json();
 
   if (!height || !weight) {
-    return NextResponse.json({ error: "قد و وزن الزامی هستند" }, { status: 422 });
+    return NextResponse.json(
+      { error: "قد و وزن الزامی هستند" },
+      { status: 422 }
+    );
+  }
+
+  const heightNum = Number(height);
+  const weightNum = Number(weight);
+
+  if (isNaN(heightNum) || isNaN(weightNum)) {
+    return NextResponse.json(
+      { error: "قد و وزن باید عدد باشند" },
+      { status: 422 }
+    );
+  }
+
+  if (heightNum < 50 || heightNum > 300) {
+    return NextResponse.json(
+      { error: "قد باید بین ۵۰ تا ۳۰۰ سانتی‌متر باشد" },
+      { status: 422 }
+    );
+  }
+
+  if (weightNum < 20 || weightNum > 300) {
+    return NextResponse.json(
+      { error: "وزن باید بین ۲۰ تا ۳۰۰ کیلوگرم باشد" },
+      { status: 422 }
+    );
+  }
+
+  const existingRequest = await Request.findOne({
+    user: session.user.id,
+    type: "nutrition",
+  });
+  if (existingRequest) {
+    return NextResponse.json(
+      { error: "❌شما قبلا درخواست داده‌اید" },
+      { status: 400 }
+    );
   }
 
   const request = await Request.create({
     user: session.user.id,
-    height,
-    weight,
+    height: heightNum,
+    weight: weightNum,
     experience,
     photo,
     extraQuestion,
-    type, 
+    type,
   });
 
   console.log(request);
-  
 
   return NextResponse.json(
     { message: "درخواست برنامه غذایی شما ثبت شد", request },
