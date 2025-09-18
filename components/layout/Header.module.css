@@ -1,113 +1,136 @@
-/* هدر ثابت بالای صفحه */
+/* ===== هدر ===== */
 .header {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  width: calc(100% - 40px);
-  height: 62px;
+  top: 12px;
+  right: 12px;
+  width: calc(100% - 24px);
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1002;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(115, 3, 113, 0.57);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  padding: 0 16px;
+  transition: background 0.3s ease-in-out;
 }
 
-/* دکمه ورود */
+/* دکمه ورود / داشبورد */
 .header .login {
-  background: none;
-  color: var(--color-secondary);
-  padding: 5px 10px;
-  border-radius: 8px;
+  background: var(--color-primary);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 9999px;
   border: none;
-  cursor: pointer;
+  font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 5px;
-  transition: all 0.2s ease-in-out;
-  background: var(--color-primary);
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
-
-.header .login .dashboard{
-  font-size: 1.4rem;
-}
-
 
 .header .login:hover {
-  background-color: var(--color-primary);
-  color: #fff;
+  background: var(--color-secondary);
+  color: var(--color-primary);
 }
 
-.scrolled{
-    color: #000;
-}
-.scrolled .hamburger svg{
-    color: var(--color-primary);
-}
-
-.scrolled .login{
-    color: var(--color-primary);
-    background-color: var(--color-secondary);
-}
-
-.desktopMenu{
-    display: none;
+.header .login .dashboard {
+  font-size: 1.3rem;
 }
 
 /* دکمه همبرگر */
 .hamburger {
   border: none;
-  background: none;
-  padding: 5px;
-  border-radius: 7px;
+  background: var(--color-primary);
+  color: white;
+  padding: 6px;
+  border-radius: 10px;
   cursor: pointer;
-  z-index: 1003;
+  transition: background 0.3s ease;
+}
+
+.hamburger:hover {
+  background: var(--color-secondary);
+  color: var(--color-primary);
 }
 
 .hamburger svg {
-  color: var(--color-primary);
-  font-size: 1.8rem;
-
+  font-size: 1.6rem;
 }
 
-
+/* ===== منوی موبایل ===== */
 .menu {
   position: fixed;
   top: 0;
-  right: -250px;
-  width: 250px;
+  right: -100%;
+  width: 70%;
+  max-width: 260px;
   height: 100vh;
-  background: #141313;
-  color: #ffffff;
-  padding-top: 60px;
+ background: linear-gradient(91.1deg, rgb(57, 31, 105) -2.3%, rgb(115, 43, 155) 44.4%, rgb(231, 75, 184) 103.4%);
+ background-size: 200% 200%; 
+ animation: gradientMove 3s ease infinite;
+   backdrop-filter: blur(2px);
+
+ display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 80px 20px;
+  gap: 14px;
   transition: right 0.3s ease-in-out;
   z-index: 1001;
+}
+
+@keyframes gradientMove {
+  0%{
+    background-position: 0% 50%;
+  }
+
+  50%{
+    background-position:  100% 50%;
+  }
+
+  100%{
+    background-position: 0% 50%;
+  }
+}
+
+.show {
+  right: 0;
 }
 
 .menu ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
 .menu ul li {
-  padding: 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  width: calc(100% - 16%);
-  margin-right: 5px;
-  transition: 0.2s all ease-in;
-  border-radius: 5px;
-}
-
-.menu ul li:hover {
-  background-color: var(--color-primary);
+  width: 100%;
+  padding: 10px 0;
 }
 
 .menu ul li a {
+  display: block;
   text-decoration: none;
-  color: #ffffff;
-  font-size: 18px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-secondary);
+  transition: transform 0.2s ease, color 0.3s ease;
 }
 
-.show {
-  right: 0;
+.menu ul li a:hover {
+  transform: translateX(5px);
+  color: var(--color-secondary);
+}
+
+/* ===== منوی دسکتاپ ===== */
+.desktopMenu {
+  display: none;
 }
 
 @media (min-width: 768px) {
@@ -115,48 +138,51 @@
     display: none;
   }
 
-  .menu { /* منوی کشویی موبایل */
+  .menu {
     display: none;
-  }
-
-  .header .login{
-    margin-left: 20px;
-  }
-  
-  .header{
-    padding: 10px;
-    background-color: var(--color-secondary);
-    top: 0;
-    right: 0;
-    width: 100%;
   }
 
   .desktopMenu {
     display: flex;
-    gap: 20px;
     align-items: center;
-    background: transparent;
   }
 
   .desktopMenu ul {
-    display: flex;;
-    gap: 20px;
+    display: flex;
+    gap: 24px;
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
   }
 
   .desktopMenu ul li a {
-    color: var(--color-primary);
     text-decoration: none;
-    font-size: 16px;
-    border-radius: 8px;
-    padding: 5px;
-    transition: color 0.3s;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-secondary);
+    position: relative;
+    padding: 4px 2px;
+    transition: color 0.3s ease;
+    
+  }
+
+  .desktopMenu ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width 0.3s ease;
+    border-radius: 2px;
   }
 
   .desktopMenu ul li a:hover {
-    color: #f1c0ff;
+    color: #fff;
   }
 
+  .desktopMenu ul li a:hover::after {
+    width: 100%;
+  }
 }

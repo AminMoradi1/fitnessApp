@@ -2,6 +2,7 @@
 .pageContainer {
   width: calc(100% - 40px);
   margin: 3rem auto 2rem auto;
+  margin-top: 90px;
   max-width: 480px;
   font-family: "Inter", sans-serif;
 }

@@ -4,9 +4,6 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: radial-gradient(1200px 800px at 85% -10%, var(--purple-200), transparent 60%),
-    radial-gradient(1000px 800px at -10% 110%, var(--purple-100), transparent 60%),
-    linear-gradient(180deg, var(--purple-50), #fff);
   padding: 24px;
 }
 

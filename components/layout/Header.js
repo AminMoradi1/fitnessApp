@@ -48,7 +48,7 @@ function Header() {
             <Link href={"/signin"}>ورود به حساب</Link>
             <CiLogin />
           </button>
-        )}
+        )} 
 
         {data && (
           <button className={styles.login}>

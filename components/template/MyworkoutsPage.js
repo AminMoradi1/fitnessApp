@@ -15,10 +15,9 @@ function MyworkoutsPage() {
       const res = await fetch("/api/dashboard/my-programs");
       const data = await res.json();
       console.log(data);
-      
+
       setLoading(false);
 
-      // فقط اونایی که برنامه‌شون آماده (done) هست رو نگه داریم
       if (Array.isArray(data)) {
         const donePrograms = data.filter(
           (req) => req.status === "done" && req.program
@@ -65,7 +64,10 @@ function MyworkoutsPage() {
         برای اطلاعات بیشتر راجب برنامه دریافتی و اختصاصی شما در تلگرام به ایدی
         @aminmoradi2006 پیام دهید
         <span>
-          <Link target="_blank" href={"https://t.me/aminmoradi2006"}> لینک تلگرام </Link>
+          <Link target="_blank" href={"https://t.me/aminmoradi2006"}>
+            {" "}
+            لینک تلگرام{" "}
+          </Link>
         </span>
       </p>
     </div>
